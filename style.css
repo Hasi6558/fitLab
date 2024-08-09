@@ -12,10 +12,13 @@
     background-color: rgb(38, 38, 38);
     align-items: center;
 }
+
 .logo{
     color: white;
     padding-left: 50px;
+    
 }
+
 .header ul{
     display: flex;
     list-style: none;
@@ -86,6 +89,8 @@
     font-size: 120px;
     color: white;
     padding-top: 180px;
+    transition: opacity 1s;
+    opacity: 1;
     
    
 }
@@ -94,7 +99,12 @@
     text-align: center;
     font-size: 50px;
     letter-spacing: 20px;
+    transition: opacity 1s;
+    opacity: 1;
     
+}
+.fade-out {
+    opacity: 0;
 }
 .register-btn{
     display: flex;
@@ -131,24 +141,179 @@
     
     padding: 100px;
 }
+
 /* styling image galery */
+
 .img-gallery{
     display: flex;  
 }
+
 .img-gallery img{
     width: 25%;
 }
+
 /* styling into-semi-private-training */
 .into-semi-private-training{
-    display: flex;
-    
+    display: flex;   
 }
+
 .into-semi-private-training-outer-box-header{
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+    text-align: center;
 }
+
 .into-semi-private-training-outer-box{
+    letter-spacing:0;
+    color: rgb(59, 65, 72);
     padding: 100px;
+}
+
+.intro-semi-private-training-image{
+    background-image: url("images/semi-private training-intro.webp");
+    width: 830px;
+}
+
+.into-semi-private-training-outer-box-header h1{
+    font-size: 70px;
+}
+
+.into-semi-private-training-inner-box{
+    width: 200px;
+}
+.into-semi-private-training-outer-box-section1{
+
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    margin: 50px 0px;
+}
+.into-semi-private-training-outer-box-section2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px 0px;
+}
+.into-semi-private-training-inner-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+}
+.into-semi-private-training-inner-box i{
+    font-size: 28px;
+    color: white;
+    padding: 15px;
+    background-color: rgb(19, 149, 123);
+    border-radius: 100%;
+    transition: 0.5s;
+    margin: 10px;
+}
+.into-semi-private-training-inner-box i:hover{
+    background-color:rgb(252, 94, 3) ;
+}
+
+.into-semi-private-training-inner-box h3{
+    padding: 10px 0px;
+}
+.intro-semi-private-training-image-contents{
+   padding-top:100px ;
+    color: white;
+    width: 130px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.intro-semi-private-training-image-contents h3{
+    font-size: 20px;
+    padding: 50px 0px 30px 0px;
+}
+.intro-semi-private-training-image-contents i{
+    color: white;
+    font-size: 50px;
+    padding: 30px 0px;
+}
+.intro-semi-private-training-image-contents hr{
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/* styling our team */
+
+.image-galery{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.image-galery img{
+    padding: 20px;
+    width: 25%;
+}
+.our-team h1{
+    font-size: 50px;
+}
+
+/* styling review section */
+.review-box{
+    display: flex;
+}
+.review-container img{
+    border-radius: 100%;
+    width: 80px;
+    margin-bottom: 15px;
+}
+.review-container h3{
+    padding-bottom:20px
+}
+.review-container{
+    color: rgb(59, 65, 72);
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.review-container p.comma{
+    font-size: 80px;
+    color: rgb(49, 202, 202);
+}
+
+/* styling why fitlab section */
+.why-fitlab-box{
+    display: flex;
+}
+.why-fitlab-section1,.why-fitlab-section2,.why-fitlab-section3{
+    width: 33.33%;
+}
+.why-fitlab-box{
+    max-width: 1100px;
+    margin: auto;
+}
+.why-fitlab-section1{
+   
+    font-size: 20px;
+}
+.why-fitlab-section2,.why-fitlab-section3{
+    margin: 0px 10px;
+}
+
+.why-fitlab-section2 ul li,.why-fitlab-section3 ul li {
+    line-height: 60px;
+    list-style: none;
+}
+.why-fitlab-section2 ul li::before, .why-fitlab-section3 ul li::before{
+    content: '\f00c';
+    font-family: 'Font Awesome 5 Free'; 
+    font-weight: 900; 
+    color: rgb(33, 197, 215);
+    margin-right: 8px; 
+    font-size: 1.2em; 
+}
+
+/* styling username */
+.logo ul li.userName{
+
 }
