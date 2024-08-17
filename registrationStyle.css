@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: poppins;
+}
+
+.registration-box{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+.registration-box-image-outer{
+    width: 60%;
+    height: 100%;
+
+}
+.registration-box-image{
+    background-image: url("images/a2f8c5_0ce3b4e1468b4dbc8b51820fc2344855~mv2.webp");
+    background-size: cover; 
+    width: 100%;
+    height: 100%;
+}
+
+.registration-box-form{
+    padding: 20px;  
+    
+    
+
+}
+.registration-box-form h1{
+    font-size:40px;
+    line-height: 70px;   
+}
+.registration-box-form input{
+    border: none;
+    border-bottom: 1px solid grey;
+    outline: none;
+    
+}
+.registration-box-form label{
+    font-size: 10px;
+}
+
+.registration-box-form input[type='text'], input[type='email'],  input[type='password']{
+    width: 300px;
+    padding-bottom: 5px;
+}
+input[type='text']:focus, input[type='email']:focus, input[type='password']:focus {
+    border-color: #6fd3f8;
+    border-width: 2px;  
+}
+.registration-box-form input[type='submit'] {
+    padding: 10px 20px;
+    width: 80px;
+    margin-left: 20px;
+    color: white;
+    background-color: rgb(19, 114, 125);
+}
+.gender [type='radio']{
+    padding-right: 50px;
+
+}
+
+.genderVal{
+    font-size: 15px;
+    padding-right: 20px;
+}
+form p{
+    color: red;
+    font-size: 10px;
+}
