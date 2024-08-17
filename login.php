@@ -15,6 +15,7 @@ session_start();
 <body>
  <?php
     include 'database.php';
+    $errorMsg="";
 
     if(isset($_POST['signIn'])){
         $email = mysqli_real_escape_string($conn,$_POST['email']);
@@ -35,7 +36,7 @@ session_start();
             exit();
         }else{
 
-            echo "invalid email or password";
+            $errorMsg=  "invalid email or password";
         }
         mysqli_close($conn);
         
@@ -61,17 +62,23 @@ session_start();
 
                 <label for="password">Password</label><br>
                 <input type="password" name="password"  required><br>
-                <p class="pw-err-msg"></p>
+                <p id="pw-err-msg" class="pw-err-msg"><?php echo $errorMsg ?></p>
 
                 <p>Don't you have an account? <a href="registration.php">Register</a></p>
 
-               
-
-                <input type="submit" name="signIn" value="Sign In">
+                <input type="submit" name="signIn" value="Sign In" onclick="checkErr()">
             </form>
         </div>
         </div>
         
     </div>
+    <script>
+        localStorage.setItem("bookingCount", "0");
+    function checkErr(){
+    if(<?php $errorMsg ?>!=""){
+        document.getElementById("pw-err-msg").innerHTML=<?php $errorMsg ?>;
+    }
+    }
+    </script>
 </body>
 </html>

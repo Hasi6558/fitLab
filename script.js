@@ -31,3 +31,4 @@ function updateText(){
 
 }
 setInterval(updateText, 3000);
+

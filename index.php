@@ -26,18 +26,17 @@ session_start();
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="price.php">Pricing</a></li>
-                <li><a href="#">Personal Trainee</a></li>
+                <li><a href="personal_trainer.php">Personal Trainee</a></li>
                 <li><a href="booking.php">Book</a></li>
 
                
                 <?php if (isset($_SESSION['email'])): ?>
                     <li><a href="#" class=""><i class="fas fa-user"></i> <?php echo $_SESSION['first_name']; ?></a></li>
-                    <li><a href="logout.php" class="login_btn">Logout</a></li>
+                    <li><a href="logout.php" class="login_btn" onclick="clearLocalStorage()">Logout</a></li>
+                    
                 <?php else: ?>
                     <li><a href="login.php" class="login_btn">Login</a></li>
                 <?php endif; ?>
-
-
             </ul>
         </div>
     </div>
@@ -157,10 +156,10 @@ session_start();
         <h1 align="center">OUR TEAM</h1>
         
         <div class="image-galery">
-            <img src="images/team member 1.webp" alt="">
-            <img src="images/5.jpg" alt="">
-            <img src="images/6.jpg" alt="">
-            <img src="images/7.jpg" alt="">
+            <img src="Asset/dulanga-hettiarachchi-1.webp" alt="" >
+            <img src="Asset/images1.jpg" alt="">
+            <img src="Asset/images33.jpg" alt="">
+            <img src="Asset/images4.jpg" alt="">
         </div>
      </div>
 
@@ -169,35 +168,31 @@ session_start();
     <!-- review section starts -->
      <div class="review-box">
         <div class="review-container">
-            <img src="images/profile1.webp" alt="">
-            <h3>Ivona</h3>
+            <img src="Asset/ss1.png" alt="">
+            <h3>Sandun</h3>
             <p>Movement Lab coaches create most efficient, strong and engaging training programs. They are very knowledgeable, supportive and fun professionals to work with. It’s always lots of good laughter, combined with serious functional fitness work- work hard, play hard !
                 Movements Lab is super clean studio! Has good coffee, cozy and charming dressing rooms and showers.
                 The best place to exercise and recharge!</p>
             <p class="comma">"</p>
          </div>
          <div class="review-container">
-            <img src="images/profile2.webp" alt="">
-            <h3>Ivona</h3>
+            <img src="Asset/ss2.png" alt="">
+            <h3>Tharanga</h3>
             <p>Movement Lab coaches create most efficient, strong and engaging training programs. They are very knowledgeable, supportive and fun professionals to work with. It’s always lots of good laughter, combined with serious functional fitness work- work hard, play hard !
                 Movements Lab is super clean studio! Has good coffee, cozy and charming dressing rooms and showers.
                 The best place to exercise and recharge!</p>
             <p class="comma">"</p>
          </div>
          <div class="review-container">
-            <img src="images/profile3.webp" alt="">
-            <h3>Ivona</h3>
-            <p>Movement Lab coaches create most efficient, strong and engaging training programs. They are very knowledgeable, supportive and fun professionals to work with. It’s always lots of good laughter, combined with serious functional fitness work- work hard, play hard !
-                Movements Lab is super clean studio! Has good coffee, cozy and charming dressing rooms and showers.
-                The best place to exercise and recharge!</p>
+            <img src="Asset/ss3.png" alt="">
+            <h3>Chamith</h3>
+            <p>At Movement Lab, fitness meets fun in the best way possible. The trainers bring so much energy and expertise, making every session both productive and enjoyable. The atmosphere is welcoming, and the attention to detail in every aspect, from equipment to cleanliness, is top-notch. Plus, the studio's ambiance makes it a perfect place to unwind after a good sweat session. Definitely a place to be!</p>
             <p class="comma">"</p>
          </div>
          <div class="review-container">
-            <img src="images/profile4.webp" alt="">
-            <h3>Ivona</h3>
-            <p>Movement Lab coaches create most efficient, strong and engaging training programs. They are very knowledgeable, supportive and fun professionals to work with. It’s always lots of good laughter, combined with serious functional fitness work- work hard, play hard !
-                Movements Lab is super clean studio! Has good coffee, cozy and charming dressing rooms and showers.
-                The best place to exercise and recharge!</p>
+            <img src="Asset/ss4.png" alt="">
+            <h3>Vichaksha</h3>
+            <p>I’ve never been more motivated to stick to my fitness routine since joining Movement Lab. The coaches are inspiring and make each session feel like an adventure in fitness. The environment is upbeat, and the studio has a cool, modern vibe. The added perks like the amazing coffee and well-maintained facilities make it a pleasure to visit every time. A great spot to push your limits and feel good doing it!</p>
             <p class="comma">"</p>
          </div>
 

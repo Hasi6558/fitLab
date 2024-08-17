@@ -1,90 +1,88 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const form = document.querySelector("form");
-    const firstName = document.querySelector("input[placeholder='First name']");
-    const lastName = document.querySelector("input[placeholder='Last name']");
-    const email = document.querySelector("input[placeholder='email']");
-    const password = document.querySelector("input[placeholder='Password']");
-    const confirmPassword = document.querySelector("input[placeholder='Re-Enter-Password']");
-    const addressLine1 = document.querySelector("input[name='address_line1']");
-    const postalCode = document.querySelector("input[placeholder='postal-code']");
-
-    const fnameErrMsg = document.querySelector(".fname-err-msg");
-    const lnameErrMsg = document.querySelector(".lname-err-msg");
-    const emailErrMsg = document.querySelector(".email-err-msg");
-    const pwErrMsg = document.querySelector(".pw-err-msg");
-    const cpwErrMsg = document.querySelector(".cpw-err-msg");
-
-    form.addEventListener("submit", function(event) {
-        let isValid = true;
-
-        // First Name validation
-        if (firstName.value.trim() === "") {
-            fnameErrMsg.textContent = "First name is required.";
-            isValid = false;
-        } else {
-            fnameErrMsg.textContent = "";
-        }
-
-        // Last Name validation
-        if (lastName.value.trim() === "") {
-            lnameErrMsg.textContent = "Last name is required.";
-            isValid = false;
-        } else {
-            lnameErrMsg.textContent = "";
-        }
-
-        // Email validation
-        if (!validateEmail(email.value)) {
-            emailErrMsg.textContent = "Invalid email format.";
-            isValid = false;
-        } else {
-            emailErrMsg.textContent = "";
-        }
-
-        // Password validation
-        if (password.value.trim() === "") {
-            pwErrMsg.textContent = "Password is required.";
-            isValid = false;
-        } else if (password.value.length < 6) {
-            pwErrMsg.textContent = "Password must be at least 6 characters.";
-            isValid = false;
-        } else {
-            pwErrMsg.textContent = "";
-        }
-
-        // Confirm Password validation
-        if (confirmPassword.value.trim() === "") {
-            cpwErrMsg.textContent = "Please confirm your password.";
-            isValid = false;
-        } else if (confirmPassword.value !== password.value) {
-            cpwErrMsg.textContent = "Passwords do not match.";
-            isValid = false;
-        } else {
-            cpwErrMsg.textContent = "";
-        }
-
-        // Address Line 1 validation
-        if (addressLine1.value.trim() === "") {
-            alert("Address line 1 is required.");
-            isValid = false;
-        }
-
-        // Postal Code validation
-        if (postalCode.value.trim() === "") {
-            alert("Postal code is required.");
-            isValid = false;
-        } else if (!/^\d{5}$/.test(postalCode.value.trim())) {
-            alert("Invalid postal code format. It should be 5 digits.");
-            isValid = false;
-        }
-
-        if (!isValid) {
-            event.preventDefault();
+    document.querySelector("form").addEventListener("submit", function(event) {
+        if (!checkError(event)) {
+            event.preventDefault(); // Prevent form submission
         }
     });
-
-    function validateEmail(email) {
-        const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-        return re.test(email.toLowerCase());
-    }
 });
+
+
+function validateFName(){
+    fname= document.getElementById("fname").value;
+    var letters =/^[A-Za-z]+$/;
+
+    if(fname.match(letters)){
+        document.getElementById("fname-err-msg").style.display="none";
+        return true;
+    }else{
+        document.getElementById("fname-err-msg").innerHTML="First  name must have alphabet ";
+        return false;
+    }
+}
+function validateLName(){
+    fname= document.getElementById("lname").value;
+    var letters =/^[A-Za-z]+$/;
+
+    if(fname.match(letters)){
+        document.getElementById("lname-err-msg").style.display="none";
+        return true;
+    }else{
+        document.getElementById("lname-err-msg").innerHTML="Last  name must have alphabet ";
+        return false;
+    }
+}
+function validateEmail(){
+    email= document.getElementById("email").value;
+    var letters =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if(email.match(letters)){
+        document.getElementById("email-err-msg").style.display="none";
+        return true;
+    }else{
+        document.getElementById("email-err-msg").innerHTML="You have entered an invalid email address !";
+        return false;
+}
+
+}
+function validatePassword(){
+    password = document.getElementById("pw").value;
+    var decimal =/^(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-])[A-Za-z\d!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]{7,15}$/;
+    if(password.match(decimal)){
+        document.getElementById("pw-err-msg").style.display="none";
+        return true;
+    } else{
+        document.getElementById("pw-err-msg").innerHTML="enter a password between 7 to 15 characters which contain <br>at least one numeric digit and a special character!";
+        return false;
+    }
+}
+function validateCPassword() {
+    var cpassword = document.getElementById("cpw").value;
+    var password = document.getElementById("pw").value;
+    var errorElement = document.getElementById("cpw-err-msg");
+    
+    if (password === cpassword) {
+        errorElement.style.display = "none";
+        return true;
+    } else {
+        errorElement.innerHTML = "Passwords do not match!";
+        errorElement.style.display = "block"; // Ensure the error message is shown
+        return false;
+    }
+}
+
+
+function checkError(event) {
+    var isValid = true;
+    const errorMsg = document.getElementById('server-error-msg').textContent;
+    if (errorMsg) {
+        // Prevent form submission if there's a server-side error
+        isValid= false;
+    }else{
+        if (!validateFName()) isValid = false;
+        if (!validateLName()) isValid = false;
+        if (!validateEmail()) isValid = false;
+        if (!validatePassword()) isValid = false;
+        if (!validateCPassword()) isValid = false;
+    }
+
+    return isValid;
+}

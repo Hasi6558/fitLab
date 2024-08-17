@@ -48,14 +48,27 @@ body{
     width: 300px;
     padding-bottom: 5px;
 }
+input[type='text']:focus, input[type='email']:focus, input[type='password']:focus {
+    border-color: #6fd3f8;
+    border-width: 2px;  
+}
 .registration-box-form input[type='submit'] {
     padding: 10px 20px;
     width: 80px;
     margin-left: 20px;
     color: white;
-    background-color: rgb(33, 197, 215);
+    background-color: rgb(19, 114, 125);
 }
 .gender [type='radio']{
     padding-right: 50px;
 
+}
+
+.genderVal{
+    font-size: 15px;
+    padding-right: 20px;
+}
+form p{
+    color: red;
+    font-size: 10px;
 }

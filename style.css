@@ -312,8 +312,8 @@
     margin-right: 8px; 
     font-size: 1.2em; 
 }
-
-/* styling username */
-.logo ul li.userName{
-
+.image-galery img{
+    min-height: 450px;
+    
 }
+/* styling username */

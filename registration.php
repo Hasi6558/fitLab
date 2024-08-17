@@ -13,6 +13,7 @@
 
     <?php
         include 'database.php';
+        $errorMsg="";
 
         if (isset($_POST['signUp'])) {
             $firstName = mysqli_real_escape_string($conn, $_POST['first_name']);
@@ -29,17 +30,18 @@
 
 
             if (mysqli_num_rows($result) > 0) {
-                echo "User already exists!";
+                $errorMsg = "User already exists!";
             } else {
                 // Encrypt the password
                 $hashedPassword = md5($password); // Use password_hash() for more secure hashing
 
                 // Insert the user into the database
-                $sql = "INSERT INTO user (first_name, last_name, gender, email, password, address_line1, postal_code) 
-                        VALUES ('$firstName', '$lastName', '$gender', '$email', '$hashedPassword', '$addressLine1', '$postalCode')";
+                $sql = "INSERT INTO user (first_name, last_name, gender, email, password, address_line1, postal_code,no_of_sessions) 
+                        VALUES ('$firstName', '$lastName', '$gender', '$email', '$hashedPassword', '$addressLine1', '$postalCode',3)";
 
                 if (mysqli_query($conn, $sql)) {
-                    "console.log('Data insertion success')";
+                    header("Location: login.php");
+                    exit();
                 } else {
                     echo "Data insertion unsuccessful: " . mysqli_error($conn);
                 }
@@ -63,34 +65,34 @@
             <form action="registration.php" method="post">
 
                 <label for="firstName">First Name</label><br>
-                <input type="text"  name="first_name" required><br>
-                <p class="fname-err-msg"></p>
+                <input type="text"  name="first_name" onblur="validateFName()" id="fname" required ><br>
+                <p id="fname-err-msg"></p>
         
-                <label for="secondName">Second Name</label><br>
-                <input type="text"  name="last_name" required><br>
-                <p class="lname-err-msg"></p><br>
+                <label for="secondName">Last Name</label><br>
+                <input type="text"  name="last_name" onblur="validateLName()" id="lname" required><br>
+                <p id="lname-err-msg"></p><br>
         
-                <label for="gender">Gender</label><br>
-                <input type="radio" name="sex" value="male" required>Male
-                <input type="radio" name="sex" value="female" required>Female<br>
+                <label for="gender" class="gender">Gender</label><br>
+                <input type="radio" name="sex" value="male" required><span class="genderVal">Male</span>
+                <input type="radio" name="sex" value="female" required><span class="genderval">Female</span><br>
                 <br>
                 <label for="email">Email</label><br>
-                <input type="email"  name="email" required><br>
-                <p class="email-err-msg"></p>
+                <input type="email"  name="email" onblur="validateEmail()" id="email" required><br>
+                <p id="email-err-msg"></p>
 
                 <label for="password">Password</label><br>
-                <input type="password" name="password"  required><br>
-                <p class="pw-err-msg"></p>
+                <input type="password" name="password" onblur="validatePassword()" id="pw" required><br> 
+                <p id="pw-err-msg"></p>
 
                 <label for="reEnterPassword">Re-enter Password</label><br>
-                <input type="password" name="re_password"  required><br>
-                <p class="cpw-err-msg"></p>
+                <input type="password" name="re_password" onblur="validateCPassword()" id="cpw" required><br>
+                <p id="cpw-err-msg"></p>
 
 
-                <label for="addressLine1">Address</label><br>
+                <label for="addressLine1" id="address">Address</label><br>
                 <input type="text" name="address_line1" ><br>
 
-                <label for="postalCode">Postal Code</label><br>
+                <label for="postalCode" id="postal_code">Postal Code</label><br>
                 <input type="text" name="postal_code" ><br><br>
 
 
@@ -98,8 +100,10 @@
                 <label for="terms">Agreed to <a href="terms_and_condition.php">terms and conditions</a> </label><br><br>
                 
                 <label for="login?">Already a member?<a href="login.php">Log in</a></label>
+                <p id="server-error-msg"><?php echo $errorMsg; ?></p>
                 
-                <input type="submit" name="signUp" value="Sign Up">
+                <input type="submit" name="signUp" value="Sign Up" onclick="checkError()">
+
             </form>
         </div>
     </div>

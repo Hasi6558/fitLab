@@ -18,12 +18,12 @@ session_start();
 
     <!-- header section start -->
     <div class="header">
-        <div class="logo"><h1>Logo</h1></div>
+        <div class="logo"><h1>FitLab</h1></div>
         <div class="logo">
             <ul>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="price.html">Pricing</a></li>
-                <li><a href="#">Personal Trainee</a></li>
+                <li><a href="price.php">Pricing</a></li>
+                <li><a href="personal_trainer.php">Personal Trainee</a></li>
 				<li><a href="booking.php">Book</a></li>
 
 				<?php if (isset($_SESSION['email'])): ?>
@@ -190,7 +190,7 @@ session_start();
 			 </div>
 		</div>
 		<div align="center">
-			<input align="center" class ="button2" type="submit" value="BACK">
+			<input align="center" class ="button2" type="submit" value="BACK" onclick="window.location.href='index.php';">
 			<br><br><br>
 
 </div>
@@ -220,10 +220,6 @@ session_start();
                    
                     </ul>
                     
-                    
-                    
-
-
                 </p>
              </td>
             </tr>

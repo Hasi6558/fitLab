@@ -1,10 +1,6 @@
 *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
-
 .header{
     display: flex;
     justify-content: space-between;
@@ -12,10 +8,13 @@
     background-color: rgb(38, 38, 38);
     align-items: center;
 }
+
 .logo{
     color: white;
     padding-left: 50px;
+    
 }
+
 .header ul{
     display: flex;
     list-style: none;
@@ -72,35 +71,105 @@
 .social-media-list li a{
     color: white;
 }
-/* styling booking section */
 
-.booking h1{
-    margin-top: 20px;
-    padding: 20px;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #828584;
 }
+
+
+
+button {
+    padding: 10px 20px;
+    background-color: orange;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkorange;
+}
+
+.main-nav a:hover {
+	color: #f24d38
+
+}
+
+tr {
+     background-color: white;
+}
+
+table td, table th {
+  padding: 30px; /* Adjust the value as needed */
+}
+
+.headinga {
+    font-size: 80px;
+}
+
 table {
-    margin-left: auto;
-    margin-right: auto;
-    border-collapse: collapse;
-   
-    
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+  align: center;
 }
-th, td {
-    border: 1px solid #000;
-    padding: 8px;
-    text-align: center;
-}
-.table-cell {
-    
-    text-align: center;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+.social-links{   
+ display: flex;
 }
-.table-cell a{
-    text-decoration: none;
-    color: rgb(191, 110, 30);;
-    font-weight: 500;
-    transition: 0.3s;
+
+.social-links a img{   
+ height:20px;
+ width: 20px;
 }
-.table-cell.a:hover {
-    background-color: rgb(72, 161, 161);
+
+
+.social-links a img:hover {
+    height:30px;
+    width: 30px;
+}
+
+.footer-links a{
+    color: #eb0c0c;
+}
+
+
+
+
+.trainer-profile img {
+    width: 250px;
+    height: 350px;
+
 }
